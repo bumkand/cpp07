@@ -2,7 +2,7 @@ NAME = swap_compare
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 CXX = c++
 
-SRCS = main.cpp Wahtever.cpp
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
