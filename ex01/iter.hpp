@@ -3,17 +3,37 @@
 
 #include <iostream>
 
-template <typename T, typename U> void iter(T *x, const int y, U function)
+template <typename T> void iter(T *x, size_t y, void (*f)(T &))
 {
-	for (int i = 0; i < y; i++)
+	if (!x || !f)
+		return ;
+	for (size_t i = 0; i < y; i++)
 	{
-		function(x[i]);
+		f(x[i]);
 	}
 }
 
-template <typename T> void	print(T x)
+template <typename T> void iter(T *x, size_t y, void (*f)(T const &))
 {
-	std::cout << x;
+	if (!x || !f)
+		return ;
+	for (size_t i = 0; i < y; i++)
+	{
+		f(x[i]);
+	}
+}
+
+//template <typename T, typename F> void iter(T *x, size_t y, F f)
+//{
+//	if (!x)
+//		return ;
+//	for (size_t i = 0; i < y; i++)
+//		f(x[i]);
+//}
+
+template <typename U> void	print(U const &x)
+{
+	std::cout << x << std::endl;
 }
 
 
